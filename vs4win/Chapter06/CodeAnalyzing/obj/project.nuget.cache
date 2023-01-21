@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "o9KF18GjLiV8V3DW3cwD8yPrOavzvQVXpGqO64KZ6GdRqTEOFZfH3xl3/Sz4dBju0/YJqEP4O06zoJMuJRQ0Hw==",
+  "success": false,
+  "projectFilePath": "C:\\Users\\volka\\OneDrive\\Belgeler\\GitHub\\cs10dotnet6\\vs4win\\Chapter06\\CodeAnalyzing\\CodeAnalyzing.csproj",
+  "expectedPackageFiles": [],
+  "logs": [
+    {
+      "code": "NU1301",
+      "level": "Error",
+      "message": "Unable to load the service index for source https://api.nuget.org/v3/index.json.",
+      "libraryId": "StyleCop.Analyzers"
+    }
+  ]
+}
