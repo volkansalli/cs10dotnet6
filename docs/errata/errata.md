@@ -13,7 +13,7 @@ If you find any mistakes in the sixth edition, *C# 10 and .NET 6 - Modern Cross-
   - [Page 32 - Adding Markdown and special commands to a notebook](#page-32---adding-markdown-and-special-commands-to-a-notebook)
   - [Page 82 - Formatting using interpolated strings](#page-82---formatting-using-interpolated-strings)
   - [Page 83 - Understanding format strings](#page-83---understanding-format-strings)
-- [Page 84 - Getting text input from the user](#page-84---getting-text-input-from-the-user)
+  - [Page 84 - Getting text input from the user](#page-84---getting-text-input-from-the-user)
   - [Page 87 - Passing arguments to a console app](#page-87---passing-arguments-to-a-console-app)
   - [Page 92 - Exercise 2.3 – Practice number sizes and ranges](#page-92---exercise-23--practice-number-sizes-and-ranges)
   - [Page 136 - Converting numbers from cardinal to ordinal](#page-136---converting-numbers-from-cardinal-to-ordinal)
@@ -23,8 +23,10 @@ If you find any mistakes in the sixth edition, *C# 10 and .NET 6 - Modern Cross-
   - [Page 183 - Importing a namespace to use a type](#page-183---importing-a-namespace-to-use-a-type)
   - [Page 187 - Storing a value using an enum type](#page-187---storing-a-value-using-an-enum-type)
   - [Page 192 - Making a field constant](#page-192---making-a-field-constant)
+  - [Page 246 - Releasing unmanaged resources](#page-246---releasing-unmanaged-resources)
   - [Page 252 - Inheriting from classes](#page-252---inheriting-from-classes)
   - [Page 260 - Avoiding casting exceptions](#page-260---avoiding-casting-exceptions)
+  - [Page 292 - Publishing a self-contained app, Page 316 - Exercise 7.3 – Explore PowerShell](#page-292---publishing-a-self-contained-app-page-316---exercise-73--explore-powershell)
   - [Page 297 - Decompiling using the ILSpy extension for Visual Studio Code](#page-297---decompiling-using-the-ilspy-extension-for-visual-studio-code)
   - [Page 311 - Understanding the .NET Portability Analyzer](#page-311---understanding-the-net-portability-analyzer)
   - [Page 316 - Exercise 7.2 – Explore topics](#page-316---exercise-72--explore-topics)
@@ -182,7 +184,7 @@ Console.WriteLine(
   arg1: "Count");
 ```
 
-# Page 84 - Getting text input from the user
+## Page 84 - Getting text input from the user
 
 I wrote that a notebook "does not support reading input from the console using `Console.ReadLine()`." Although this is true, you can use the `Microsoft.DotNet.Interactive.Kernel` class and its `GetInputAsync` method instead. This uses the .NET Interactive integration with the Visual Studio Code user interface to prompt the user for input.
 
@@ -386,6 +388,14 @@ In the **Good Practice** box, the text "If you use are writing code" should be "
 In Step 1, the assigned `string` literal should be `"Homo Sapiens"`. 
 In Step 3, the output should be `Bob Smith is a Homo Sapiens`.
 
+## Page 246 - Releasing unmanaged resources
+
+> Thanks to `Wuu#0348` on the Discord channel for raising this issue.
+
+In the second bullet point after the large code block, I wrote, "It needs to check the `disposing` parameter and `disposed` field because if the finalizer thread has already run and it called the `~Animal` method, then only unmanaged resources need to be deallocated." I should have written **managed** not **unmanaged**. 
+
+It might be clearer if I wrote, "It needs to check the `disposing` parameter and `disposed` field because if the finalizer thread has already run and it called the `~Animal` method, then unmanaged resources will already have been deallocated and only managed resources remain to be deallocated by the garbage collector." This same typo is in the 7th edition. I will fix this in the 8th edition due to be published in November 2023.
+
 ## Page 252 - Inheriting from classes
 
 > Thanks to Nick Tsiatinis for emailing me this issue.
@@ -400,6 +410,10 @@ console app projects with a `Program.cs` file. I should have said,
 
 In Step 3, I wrote, "In `Main`, ...", but there is no `Main` method. 
 I should have written, "In `Program.cs`, ..."
+
+## Page 292 - Publishing a self-contained app, Page 316 - Exercise 7.3 – Explore PowerShell
+
+In the **Good Practice** box on page 292, I wrote about how you can automate commands using scripts written in the PowerShell language. My original plan was to write content about PowerShell in the GitHub repository. But PowerShell is a massive topic and there will always be higher priority content to create that is specifically about C# and .NET. In the 8th edition, I will just reference the official PowerShell documentation: https://learn.microsoft.com/en-us/powershell/ And I will remove **Exercise 7.3** that suggests exploring PowerShell.
 
 ## Page 297 - Decompiling using the ILSpy extension for Visual Studio Code
 
